@@ -1,0 +1,1 @@
+assert False, 'You loose'
