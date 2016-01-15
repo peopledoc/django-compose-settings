@@ -12,3 +12,8 @@ develop: install
 tests:
 	flake8 .
 	python -m unittest discover tests/
+
+.PHONY: release
+release:
+	pip install -e ".[release]"
+	fullrelease
