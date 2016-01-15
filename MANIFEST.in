@@ -1,0 +1,6 @@
+recursive-include django_compose_settings *
+include AUTHORS
+include CHANGELOG
+include LICENSE
+include README.rst
+include VERSION
