@@ -9,7 +9,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 setup(
     name='django-compose-settings',
-    version='0.1.dev0',
+    version=open(os.path.join(here, 'VERSION')).read().strip(),
     description='Django composable settings loader.',
     long_description=open(os.path.join(here, 'README.rst')).read(),
     classifiers=[
