@@ -27,6 +27,12 @@ setup(
     author_email='rd@novapost.fr',
     url='https://github.com/novafloss/django-compose-settings',
     license='MIT',
+    extras_require={
+        'release': [
+            'wheel',
+            'zest.releaser'
+        ],
+    },
     packages=[
         'django_compose_settings'
     ],
