@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  test-2.7:
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - checkout
+      - run:
+          command: |
+            sudo pip install virtualenv
+            virtualenv venv; . venv/bin/activate; make develop
+      - run:
+          command: |
+            . venv/bin/activate; make tests
+  test-3.6:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run:
+          command: |
+            sudo pip install virtualenv
+            virtualenv venv; . venv/bin/activate; make develop
+      - run:
+          command: |
+            . venv/bin/activate; make tests
+
+workflows:
+  version: 2
+  default:
+    jobs:
+      - test-2.7
+      - test-3.6
