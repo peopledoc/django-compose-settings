@@ -8,9 +8,12 @@ install:
 develop: install
 	pip install flake8
 
+.PHONY: flake8
+flake8:
+	flake8 django_compose_settings tests
+
 .PHONY: tests
-tests:
-	flake8 .
+tests: flake8
 	python -m unittest discover tests/
 
 .PHONY: release
