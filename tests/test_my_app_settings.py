@@ -21,7 +21,7 @@ class ModulesTestCase(unittest.TestCase):
 
     def tearDown(self):
         os.environ.pop('MY_APP_SETTINGS', None)
-        for module in sys.modules.keys():
+        for module in list(sys.modules.keys()):
             if not module.startswith('my_app'):
                 continue
             del sys.modules[module]

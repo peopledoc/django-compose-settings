@@ -37,7 +37,7 @@ def etc_loader(prefix, root='/etc'):
             continue
 
         if not file_.endswith('.py'):
-            logger.warn("Loads only *.py files. Ignoring %s.", file_)
+            logger.warning("Loads only *.py files. Ignoring %s.", file_)
             continue
 
         globals_ = dict(globals(), **{
@@ -47,8 +47,9 @@ def etc_loader(prefix, root='/etc'):
 
         try:
             # Collect variables in globals_ dictionnary
-            execfile(file_, globals_)
-        except IOError, e:
+            with open(file_) as f:
+                exec(f.read(), globals_)
+        except IOError as e:
             # ImportError are handled by django.
             raise ImportError(e.message)
 

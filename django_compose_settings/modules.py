@@ -1,10 +1,10 @@
-import imp
 import importlib
 import inspect
 import logging
 import os
 import sys
 import traceback
+import types
 
 
 logger = logging.getLogger('django_compose_settings')
@@ -25,7 +25,7 @@ def modules_loader(prefix, default=''):
 
     modules = os.environ.get(envvar, default).split(',')
     if not modules:
-        logger.warn('No settings to load!')
+        logger.warning('No settings to load!')
         sys.exit(1)
 
     # uniqify, preserving order.. From
@@ -51,7 +51,7 @@ def modules_loader(prefix, default=''):
         logger.error("%r", sys.modules.keys())
         sys.exit(1)
 
-    current = imp.new_module(current_name)
+    current = types.ModuleType(current_name)
     sys.modules[current_name] = current
 
     # Marshall loading settings from python modules
@@ -60,11 +60,11 @@ def modules_loader(prefix, default=''):
         fullname = '{0}.settings.{1}'.format(prefix, name.strip())
         try:
             module = importlib.import_module(fullname)
-        except ImportError, e:
+        except ImportError as e:
             logger.critical('Failed to load %s: %s', fullname, e)
             logger.exception(e)
             sys.exit(1)
-        except ValueError, e:
+        except ValueError as e:
             logger.critical('%s', e)
             sys.exit(1)
 

@@ -1,6 +1,10 @@
 machine:
-  python:
-    version: 2.7.3
+  post:
+    - pyenv global 2.7.12 3.5.3 3.6.2
+
+dependencies:
+   override:
+     - pip install tox tox-pyenv
 
 checkout:
   post:
@@ -8,4 +12,6 @@ checkout:
 
 test:
   override:
-    - make tests
+    - tox -e py27
+    - tox -e py35
+    - tox -e py36

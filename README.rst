@@ -20,7 +20,7 @@ In ``my_app/settings/base.py`` define default values as usual, ex::
 
     import os
 
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     # ...
 
@@ -75,3 +75,4 @@ for your app as follow::
 
     2015-11-23 10:59:09,964 INFO     django_compose_settings  Loaded my_app.settings.base
     2015-11-23 10:59:09,964 INFO     django_compose_settings  Loaded my_app.settings.post
+
