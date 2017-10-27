@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import codecs
 
 from setuptools import setup
 
@@ -9,9 +10,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 setup(
     name='django-compose-settings',
-    version=open(os.path.join(here, 'VERSION')).read().strip(),
+    version=codecs.open(os.path.join(here, 'VERSION'), encoding='utf-8').read().strip(),
     description='Django composable settings loader.',
-    long_description=open(os.path.join(here, 'README.rst')).read(),
+    long_description=codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8').read(),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
