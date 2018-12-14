@@ -4,7 +4,7 @@ Changelog
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix unicode error when install with python3.x
 
 
 0.2 (2017-10-27)
