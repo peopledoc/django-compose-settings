@@ -1,8 +1,8 @@
 version: 2
 jobs:
-  test-3.6:
+  test-3.8:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.8
     steps:
       - checkout
       - run:
@@ -17,4 +17,4 @@ workflows:
   version: 2
   default:
     jobs:
-      - test-3.6
+      - test-3.8
