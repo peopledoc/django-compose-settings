@@ -7,11 +7,11 @@ jobs:
       - checkout
       - run:
           command: |
-            sudo pip install virtualenv
-            virtualenv venv; . venv/bin/activate; make develop
+            pip install --user -e .[tests]
       - run:
           command: |
-            . venv/bin/activate; make tests
+            make flake8
+            make tests
 
 workflows:
   version: 2

@@ -33,6 +33,9 @@ setup(
             'wheel',
             'zest.releaser'
         ],
+        'tests': [
+            'flake8'
+        ]
     },
     packages=[
         'django_compose_settings'

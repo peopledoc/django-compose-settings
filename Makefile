@@ -13,8 +13,8 @@ flake8:
 	flake8 django_compose_settings tests
 
 .PHONY: tests
-tests: flake8
-	python -m unittest discover tests/
+tests:
+	python -m unittest discover -v tests/
 
 .PHONY: release
 release:
