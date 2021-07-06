@@ -60,12 +60,8 @@ def modules_loader(prefix, default=''):
         fullname = '{0}.settings.{1}'.format(prefix, name.strip())
         try:
             module = importlib.import_module(fullname)
-        except ImportError as e:
-            logger.critical('Failed to load %s: %s', fullname, e)
-            logger.exception(e)
-            sys.exit(1)
-        except ValueError as e:
-            logger.critical('%s', e)
+        except Exception:
+            logger.exception("Failed to load setting module '%s'", fullname)
             sys.exit(1)
 
         update_settings(current, vars(module))
